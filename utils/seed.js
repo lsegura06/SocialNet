@@ -2,6 +2,8 @@ const connection = require('../config/connection');
 const { User, Thought } = require('../models');
 const { getUsers, getThoughts } = require('./data');
 
+connection.on("error", (err) => err)
+
 const seedDatabase = async () => {
     try {
         await connection.once('open', async () => {
